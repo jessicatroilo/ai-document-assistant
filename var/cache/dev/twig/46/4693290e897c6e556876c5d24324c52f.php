@@ -113,40 +113,73 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
         // line 16
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_document_analyze");
         yield "\" method='POST'>
-        <textarea id='texte' name=\"user_text\" >
-        C'est ici que je colle mon document
+        <textarea id='texte' name=\"user_text\" placeholder= \" C'est ici que je colle mon document\">
         </textarea>
         <button type=\"submit\"> Analyser le document</button>
     </form>
     </div>
 
     ";
-        // line 25
+        // line 24
         yield "    <div>
     <h2> Résultat </h2>
-        <div>
+        ";
+        // line 26
+        if ((($tmp = (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 26, $this->source); })())) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+            // line 27
+            yield "        <div>
             <div>
                 <h3> Résumé </h3>
-                    <p> le résumé ici </p>
+                    <p> ";
+            // line 30
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 30, $this->source); })()), "summary", [], "any", false, false, false, 30), "html", null, true);
+            yield " </p>
             </div>
             <div>
                 <h3> Points importants </h3>
                     <ul>
-                        <li>ici le point 1</li>
-                        <li>ici le point 2</li>
-                        <li> ici le point n</li>
-                    </ul>
+                        ";
+            // line 35
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 35, $this->source); })()), "key_points", [], "any", false, false, false, 35));
+            foreach ($context['_seq'] as $context["_key"] => $context["point"]) {
+                // line 36
+                yield "                        <li>";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["point"], "html", null, true);
+                yield "</li>
+                        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['point'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 38
+            yield "                    </ul>
             </div>
             <div>
                 <h3> Actions à suivre </h3>
                     <ul>
-                        <li>ici l'action 1</li>
-                        <li>ici l'action 2</li>
-                        <li>ici l'action n</li>
-                    </ul>
+                        ";
+            // line 43
+            $context['_parent'] = $context;
+            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 43, $this->source); })()), "actions", [], "any", false, false, false, 43));
+            foreach ($context['_seq'] as $context["_key"] => $context["action"]) {
+                // line 44
+                yield "                        <li>";
+                yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["action"], "html", null, true);
+                yield "</li>
+                        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_key'], $context['action'], $context['_parent']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 46
+            yield "                    </ul>
             </div>
         </div>
-    </div>
+        ";
+        }
+        // line 50
+        yield "    </div>
 
 </div>
 ";
@@ -180,7 +213,7 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  125 => 25,  114 => 16,  110 => 14,  103 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  182 => 50,  176 => 46,  167 => 44,  163 => 43,  156 => 38,  147 => 36,  143 => 35,  135 => 30,  130 => 27,  128 => 26,  124 => 24,  114 => 16,  110 => 14,  103 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -201,8 +234,7 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
     <div>
     <h2> Votre texte </h2>
     <form action=\"{{path ('app_document_analyze') }}\" method='POST'>
-        <textarea id='texte' name=\"user_text\" >
-        C'est ici que je colle mon document
+        <textarea id='texte' name=\"user_text\" placeholder= \" C'est ici que je colle mon document\">
         </textarea>
         <button type=\"submit\"> Analyser le document</button>
     </form>
@@ -211,28 +243,30 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
     {# Résultat #}
     <div>
     <h2> Résultat </h2>
+        {% if result %}
         <div>
             <div>
                 <h3> Résumé </h3>
-                    <p> le résumé ici </p>
+                    <p> {{ result.summary }} </p>
             </div>
             <div>
                 <h3> Points importants </h3>
                     <ul>
-                        <li>ici le point 1</li>
-                        <li>ici le point 2</li>
-                        <li> ici le point n</li>
+                        {% for point in result.key_points %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
                     </ul>
             </div>
             <div>
                 <h3> Actions à suivre </h3>
                     <ul>
-                        <li>ici l'action 1</li>
-                        <li>ici l'action 2</li>
-                        <li>ici l'action n</li>
+                        {% for action in result.actions %}
+                        <li>{{ action }}</li>
+                        {% endfor %}
                     </ul>
             </div>
         </div>
+        {% endif %}
     </div>
 
 </div>

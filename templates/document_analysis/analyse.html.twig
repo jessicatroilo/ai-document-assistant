@@ -12,40 +12,41 @@
 
     {# Texte à coller #}
     <div>
-    <h2> Votre texte </h2>
-    <form action="{{path ('app_document_analyze') }}" method='POST'>
-        <textarea id='texte' name="user_text" >
-        C'est ici que je colle mon document
-        </textarea>
-        <button type="submit"> Analyser le document</button>
-    </form>
+        <h2> Votre texte </h2>
+        <form action="{{path ('app_document_analyze') }}" method='POST'>
+            <textarea id='texte' name="user_text" placeholder= " C'est ici que je colle mon document">
+            </textarea>
+            <button type="submit"> Analyser le document</button>
+        </form>
     </div>
 
     {# Résultat #}
     <div>
-    <h2> Résultat </h2>
+        <h2> Résultat </h2>
+        {% if result %}
         <div>
             <div>
                 <h3> Résumé </h3>
-                    <p> le résumé ici </p> {#TODO à dynamiqer une fois données : {{ summary }} #}
+                    <p> {{ result.summary }} </p>
             </div>
             <div>
                 <h3> Points importants </h3>
                     <ul>
-                        <li>ici le point 1</li> {#TODO à dynamiqer une fois données : {{ key_points }} #}
-                        <li>ici le point 2</li>
-                        <li> ici le point n</li>
+                        {% for point in result.key_points %}
+                        <li>{{ point }}</li>
+                        {% endfor %}
                     </ul>
             </div>
             <div>
                 <h3> Actions à suivre </h3>
                     <ul>
-                        <li>ici l'action 1</li> {#TODO à dynamiqer une fois données : {{ actions }} #}
-                        <li>ici l'action 2</li>
-                        <li>ici l'action n</li>
+                        {% for action in result.actions %}
+                        <li>{{ action }}</li>
+                        {% endfor %}
                     </ul>
             </div>
         </div>
+        {% endif %}
     </div>
 
 </div>
