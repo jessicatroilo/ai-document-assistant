@@ -1,3 +1,4 @@
+
 # 🧠 Assistant de synthèse IA
 
 Application web permettant de transformer un texte brut (email, document, compte rendu…) en synthèse structurée :
@@ -26,6 +27,11 @@ Il permet de simplifier la lecture de contenus longs et de transformer l’infor
    - actions
   
 
+![Aperçu de l’interface de l’assistant IA](./screenshots/interface.png)
+
+![Aperçu de l’interface de l’assistant IA](./screenshots/add-document.png)
+
+![Aperçu de l’interface de l’assistant IA](./screenshots/result.png)
 
 
 ---
