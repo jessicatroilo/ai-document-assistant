@@ -73,7 +73,7 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        yield "Analyser votre texte";
+        yield "Analyser votre texte IA";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -97,90 +97,94 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        yield "<div>
-    ";
-        // line 8
-        yield "    <div>
-        <h1>Assistant de synthèse - RH/ Santé du travail</h1>
-        <p>Collez un document pour obtenir un résumé, les points clés et les actions à suivre. </p>
-    </div>
+        yield "<div class=\"page\">
+    <div class=\"container\">
+        ";
+        // line 9
+        yield "        <div class=\"header\">
+            <h1>Assistant de synthèse IA - RH/ Santé du travail</h1>
+            <p>Collez un document pour obtenir un résumé, les points clés et les actions à suivre. </p>
+        </div>
 
-    ";
-        // line 14
-        yield "    <div>
-    <h2> Votre texte </h2>
-    <form action=\"";
+        <div class=\"grid\">
+        ";
         // line 16
+        yield "            <section class=\"panel input-panel\">
+                <h2> Votre texte </h2>
+                <form action=\"";
+        // line 18
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_document_analyze");
         yield "\" method='POST'>
-        <textarea id='texte' name=\"user_text\" placeholder= \" C'est ici que je colle mon document\">
-        </textarea>
-        <button type=\"submit\"> Analyser le document</button>
-    </form>
-    </div>
+                    <textarea id='texte' name=\"user_text\" placeholder=\"Collez votre document ici...\" required>
+                    Coller votre document ici...
+                    </textarea>
+                    <button type=\"submit\" class=\"btn\"> Analyser le document</button>
+                </form>
+            </section>
 
-    ";
-        // line 24
-        yield "    <div>
-    <h2> Résultat </h2>
-        ";
-        // line 26
-        if ((($tmp = (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 26, $this->source); })())) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
-            // line 27
-            yield "        <div>
-            <div>
-                <h3> Résumé </h3>
-                    <p> ";
+            ";
+        // line 27
+        yield "            <section class=\"panel result-panel\">
+                <h2> Résultat </h2>
+                ";
+        // line 29
+        if ((($tmp = (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 29, $this->source); })())) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
             // line 30
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 30, $this->source); })()), "summary", [], "any", false, false, false, 30), "html", null, true);
+            yield "                <div>
+                    <div class=\"card summary\">
+                        <h3><i class=\"fa-regular fa-file\"></i> Résumé </h3>
+                            <p> ";
+            // line 33
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 33, $this->source); })()), "summary", [], "any", false, false, false, 33), "html", null, true);
             yield " </p>
-            </div>
-            <div>
-                <h3> Points importants </h3>
-                    <ul>
-                        ";
-            // line 35
+                    </div>
+                    <div class=\"card points\">
+                        <h3> <i class=\"fa-solid fa-star\"></i> Points importants </h3>
+                            <ul>
+                                ";
+            // line 38
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 35, $this->source); })()), "key_points", [], "any", false, false, false, 35));
+            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 38, $this->source); })()), "key_points", [], "any", false, false, false, 38));
             foreach ($context['_seq'] as $context["_key"] => $context["point"]) {
-                // line 36
-                yield "                        <li>";
+                // line 39
+                yield "                                <li>";
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["point"], "html", null, true);
                 yield "</li>
-                        ";
+                                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['point'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 38
-            yield "                    </ul>
-            </div>
-            <div>
-                <h3> Actions à suivre </h3>
-                    <ul>
-                        ";
-            // line 43
+            // line 41
+            yield "                            </ul>
+                    </div>
+                    <div class=\"card actions\">
+                        <h3><i class=\"fa-solid fa-check\"></i> Actions à suivre </h3>
+                            <ul>
+                                ";
+            // line 46
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 43, $this->source); })()), "actions", [], "any", false, false, false, 43));
+            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 46, $this->source); })()), "actions", [], "any", false, false, false, 46));
             foreach ($context['_seq'] as $context["_key"] => $context["action"]) {
-                // line 44
-                yield "                        <li>";
+                // line 47
+                yield "                                <li>";
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["action"], "html", null, true);
                 yield "</li>
-                        ";
+                                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['action'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 46
-            yield "                    </ul>
-            </div>
-        </div>
-        ";
+            // line 49
+            yield "                            </ul>
+                    </div>
+                </div>
+                ";
         }
-        // line 50
-        yield "    </div>
-
+        // line 53
+        yield "            </section>
+        </div>
+    </div>
 </div>
 ";
         
@@ -213,62 +217,66 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  182 => 50,  176 => 46,  167 => 44,  163 => 43,  156 => 38,  147 => 36,  143 => 35,  135 => 30,  130 => 27,  128 => 26,  124 => 24,  114 => 16,  110 => 14,  103 => 8,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  185 => 53,  179 => 49,  170 => 47,  166 => 46,  159 => 41,  150 => 39,  146 => 38,  138 => 33,  133 => 30,  131 => 29,  127 => 27,  116 => 18,  112 => 16,  104 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Analyser votre texte{% endblock %}
+{% block title %}Analyser votre texte IA{% endblock %}
 
 {% block body %}
-<div>
-    {# En-tête #}
-    <div>
-        <h1>Assistant de synthèse - RH/ Santé du travail</h1>
-        <p>Collez un document pour obtenir un résumé, les points clés et les actions à suivre. </p>
-    </div>
-
-    {# Texte à coller #}
-    <div>
-    <h2> Votre texte </h2>
-    <form action=\"{{path ('app_document_analyze') }}\" method='POST'>
-        <textarea id='texte' name=\"user_text\" placeholder= \" C'est ici que je colle mon document\">
-        </textarea>
-        <button type=\"submit\"> Analyser le document</button>
-    </form>
-    </div>
-
-    {# Résultat #}
-    <div>
-    <h2> Résultat </h2>
-        {% if result %}
-        <div>
-            <div>
-                <h3> Résumé </h3>
-                    <p> {{ result.summary }} </p>
-            </div>
-            <div>
-                <h3> Points importants </h3>
-                    <ul>
-                        {% for point in result.key_points %}
-                        <li>{{ point }}</li>
-                        {% endfor %}
-                    </ul>
-            </div>
-            <div>
-                <h3> Actions à suivre </h3>
-                    <ul>
-                        {% for action in result.actions %}
-                        <li>{{ action }}</li>
-                        {% endfor %}
-                    </ul>
-            </div>
+<div class=\"page\">
+    <div class=\"container\">
+        {# En-tête #}
+        <div class=\"header\">
+            <h1>Assistant de synthèse IA - RH/ Santé du travail</h1>
+            <p>Collez un document pour obtenir un résumé, les points clés et les actions à suivre. </p>
         </div>
-        {% endif %}
-    </div>
 
+        <div class=\"grid\">
+        {# Texte à coller #}
+            <section class=\"panel input-panel\">
+                <h2> Votre texte </h2>
+                <form action=\"{{path ('app_document_analyze') }}\" method='POST'>
+                    <textarea id='texte' name=\"user_text\" placeholder=\"Collez votre document ici...\" required>
+                    Coller votre document ici...
+                    </textarea>
+                    <button type=\"submit\" class=\"btn\"> Analyser le document</button>
+                </form>
+            </section>
+
+            {# Résultat #}
+            <section class=\"panel result-panel\">
+                <h2> Résultat </h2>
+                {% if result %}
+                <div>
+                    <div class=\"card summary\">
+                        <h3><i class=\"fa-regular fa-file\"></i> Résumé </h3>
+                            <p> {{ result.summary }} </p>
+                    </div>
+                    <div class=\"card points\">
+                        <h3> <i class=\"fa-solid fa-star\"></i> Points importants </h3>
+                            <ul>
+                                {% for point in result.key_points %}
+                                <li>{{ point }}</li>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                    <div class=\"card actions\">
+                        <h3><i class=\"fa-solid fa-check\"></i> Actions à suivre </h3>
+                            <ul>
+                                {% for action in result.actions %}
+                                <li>{{ action }}</li>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </section>
+        </div>
+    </div>
 </div>
 {% endblock %}
 ", "document_analysis/analyse.html.twig", "/var/www/html/projets/ai-document-assistant/templates/document_analysis/analyse.html.twig");

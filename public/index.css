@@ -1,0 +1,114 @@
+/* GLOBAL */
+body {
+    font-family: system-ui, sans-serif;
+    background: #f7f7f8;
+    color: #111;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    }
+
+/* HEADER */
+.header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+/* GRID 2 COLONNES */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: start;
+}
+
+/* PANELS */
+.panel {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+}
+
+/* TITRES */
+h2 {
+    margin-bottom: 16px;
+    font-size: 1.5rem;
+}
+
+/* TEXTAREA */
+textarea {
+    width: 100%;
+    height: 300px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    resize: vertical;
+    font-size: 1rem;
+    margin-bottom: 16px;
+}
+
+/* BUTTON */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #2f6fed;
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* RESULT CARDS */
+.card {
+    background: #f9fafb;
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 12px;
+    border: 1px solid #eee;
+}
+
+.summary {
+    background-color: #0b9cfd1f;
+}
+
+.summary i {
+    color: #0b9cfd;
+    padding-right: 8px;
+}
+
+.points {
+    background-color: #fdf90b1f;
+}
+
+.points i {
+    color: #fad502;
+    padding-right: 8px;
+}
+
+.actions {
+    background-color: #0bfd541f;
+}
+
+.actions i {
+    color: #00962d;
+    padding-right: 8px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

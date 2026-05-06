@@ -62,34 +62,34 @@ class __TwigTemplate_6b3e18ff30a8e513ca848f376cd2f39a extends Template
         ";
         // line 7
         yield from $this->unwrap()->yieldBlock('stylesheets', $context, $blocks);
-        // line 9
-        yield "
-        ";
         // line 10
-        yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
-        // line 13
         yield "
         ";
-        // line 14
-        $context["frankenphpHotReload"] = CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 14, $this->source); })()), "request", [], "any", false, false, false, 14), "server", [], "any", false, false, false, 14), "get", ["FRANKENPHP_HOT_RELOAD"], "method", false, false, false, 14);
-        // line 15
+        // line 11
+        yield from $this->unwrap()->yieldBlock('javascripts', $context, $blocks);
+        // line 16
+        yield "
+        ";
+        // line 17
+        $context["frankenphpHotReload"] = CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, CoreExtension::getAttribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 17, $this->source); })()), "request", [], "any", false, false, false, 17), "server", [], "any", false, false, false, 17), "get", ["FRANKENPHP_HOT_RELOAD"], "method", false, false, false, 17);
+        // line 18
         yield "        ";
-        if ((($tmp = (isset($context["frankenphpHotReload"]) || array_key_exists("frankenphpHotReload", $context) ? $context["frankenphpHotReload"] : (function () { throw new RuntimeError('Variable "frankenphpHotReload" does not exist.', 15, $this->source); })())) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
-            // line 16
+        if ((($tmp = (isset($context["frankenphpHotReload"]) || array_key_exists("frankenphpHotReload", $context) ? $context["frankenphpHotReload"] : (function () { throw new RuntimeError('Variable "frankenphpHotReload" does not exist.', 18, $this->source); })())) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+            // line 19
             yield "        <meta name=\"frankenphp-hot-reload:url\" content=\"";
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["frankenphpHotReload"]) || array_key_exists("frankenphpHotReload", $context) ? $context["frankenphpHotReload"] : (function () { throw new RuntimeError('Variable "frankenphpHotReload" does not exist.', 16, $this->source); })()), "html", null, true);
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape((isset($context["frankenphpHotReload"]) || array_key_exists("frankenphpHotReload", $context) ? $context["frankenphpHotReload"] : (function () { throw new RuntimeError('Variable "frankenphpHotReload" does not exist.', 19, $this->source); })()), "html", null, true);
             yield "\">
         <script src=\"https://cdn.jsdelivr.net/npm/idiomorph\"></script>
         <script src=\"https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm\" type=\"module\"></script>
         ";
         }
-        // line 20
+        // line 23
         yield "    </head>
     <body>
         ";
-        // line 22
+        // line 25
         yield from $this->unwrap()->yieldBlock('body', $context, $blocks);
-        // line 23
+        // line 26
         yield "    </body>
 </html>
 ";
@@ -139,7 +139,10 @@ class __TwigTemplate_6b3e18ff30a8e513ca848f376cd2f39a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
         // line 8
-        yield "        ";
+        yield "            <link rel=\"stylesheet\" href=\"";
+        yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("index.css"), "html", null, true);
+        yield "\">
+        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -149,7 +152,7 @@ class __TwigTemplate_6b3e18ff30a8e513ca848f376cd2f39a extends Template
         yield from [];
     }
 
-    // line 10
+    // line 11
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -162,11 +165,13 @@ class __TwigTemplate_6b3e18ff30a8e513ca848f376cd2f39a extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 11
+        // line 12
         yield "            ";
         yield from $this->unwrap()->yieldBlock('importmap', $context, $blocks);
-        // line 12
-        yield "        ";
+        // line 13
+        yield "            <!-- FontAwesome -->
+            <script src=\"https://kit.fontawesome.com/275e06ef04.js\" crossorigin=\"anonymous\"></script>
+        ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -176,7 +181,7 @@ class __TwigTemplate_6b3e18ff30a8e513ca848f376cd2f39a extends Template
         yield from [];
     }
 
-    // line 11
+    // line 12
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -199,7 +204,7 @@ class __TwigTemplate_6b3e18ff30a8e513ca848f376cd2f39a extends Template
         yield from [];
     }
 
-    // line 22
+    // line 25
     /**
      * @return iterable<null|scalar|\Stringable>
      */
@@ -242,7 +247,7 @@ class __TwigTemplate_6b3e18ff30a8e513ca848f376cd2f39a extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  203 => 22,  180 => 11,  169 => 12,  166 => 11,  153 => 10,  142 => 8,  129 => 7,  106 => 5,  93 => 23,  91 => 22,  87 => 20,  79 => 16,  76 => 15,  74 => 14,  71 => 13,  69 => 10,  66 => 9,  64 => 7,  59 => 5,  53 => 1,);
+        return array (  208 => 25,  185 => 12,  172 => 13,  169 => 12,  156 => 11,  142 => 8,  129 => 7,  106 => 5,  93 => 26,  91 => 25,  87 => 23,  79 => 19,  76 => 18,  74 => 17,  71 => 16,  69 => 11,  66 => 10,  64 => 7,  59 => 5,  53 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -254,10 +259,13 @@ class __TwigTemplate_6b3e18ff30a8e513ca848f376cd2f39a extends Template
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel=\"icon\" href=\"data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>\">
         {% block stylesheets %}
+            <link rel=\"stylesheet\" href=\"{{ asset('index.css') }}\">
         {% endblock %}
 
         {% block javascripts %}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
+            <!-- FontAwesome -->
+            <script src=\"https://kit.fontawesome.com/275e06ef04.js\" crossorigin=\"anonymous\"></script>
         {% endblock %}
 
         {% set frankenphpHotReload = app.request.server.get('FRANKENPHP_HOT_RELOAD') %}
