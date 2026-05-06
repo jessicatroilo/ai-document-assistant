@@ -27,11 +27,11 @@ Il permet de simplifier la lecture de contenus longs et de transformer l’infor
    - actions
   
 
-![Aperçu de l’interface de l’assistant IA](./screenshots/interface.png)
+![Aperçu de l’interface de l’assistant IA](public/screenshots/interface.png)
 
-![Aperçu de l’interface de l’assistant IA](./screenshots/add-document.png)
+![Aperçu de l’interface de l’assistant IA](public/screenshots/add-document.png)
 
-![Aperçu de l’interface de l’assistant IA](./screenshots/result.png)
+![Aperçu de l’interface de l’assistant IA](public/screenshots/result.png)
 
 
 ---
