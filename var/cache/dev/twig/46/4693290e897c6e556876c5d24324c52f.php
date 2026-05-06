@@ -102,8 +102,8 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
         ";
         // line 9
         yield "        <div class=\"header\">
-            <h1>Assistant de synthèse IA - RH/ Santé du travail</h1>
-            <p>Collez un document pour obtenir un résumé, les points clés et les actions à suivre. </p>
+            <h1>Assistant de synthèse IA </h1>
+            <p>Collez un compte-rendu, un email ou autre document pour obtenir un résumé, les points clés et les actions à suivre. </p>
         </div>
 
         <div class=\"grid\">
@@ -231,8 +231,8 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
     <div class=\"container\">
         {# En-tête #}
         <div class=\"header\">
-            <h1>Assistant de synthèse IA - RH/ Santé du travail</h1>
-            <p>Collez un document pour obtenir un résumé, les points clés et les actions à suivre. </p>
+            <h1>Assistant de synthèse IA </h1>
+            <p>Collez un compte-rendu, un email ou autre document pour obtenir un résumé, les points clés et les actions à suivre. </p>
         </div>
 
         <div class=\"grid\">
