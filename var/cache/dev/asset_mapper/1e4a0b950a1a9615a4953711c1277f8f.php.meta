@@ -1,0 +1,1 @@
+a:2:{i:0;O:46:"Symfony\Component\Config\Resource\FileResource":1:{s:8:"resource";s:72:"/var/www/html/projets/ai-document-assistant/assets/stimulus_bootstrap.js";}i:1;O:55:"Symfony\Component\Config\Resource\FileExistenceResource":2:{s:8:"resource";s:96:"/var/www/html/projets/ai-document-assistant/vendor/symfony/stimulus-bundle/assets/dist/loader.js";s:6:"exists";b:1;}}
