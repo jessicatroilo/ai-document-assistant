@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Analyser votre texte{% endblock %}
+
+{% block body %}
+<div>
+    {# En-tête #}
+    <div>
+        <h1>Assistant de synthèse - RH/ Santé du travail</h1>
+        <p>Collez un document pour obtenir un résumé, les points clés et les actions à suivre. </p>
+    </div>
+
+    {# Texte à coller #}
+    <div>
+    <h2> Votre texte </h2>
+    <form action="{{path ('app_document_analyze') }}" method='POST'>
+        <textarea id='texte' name="user_text" >
+        C'est ici que je colle mon document
+        </textarea>
+        <button type="submit"> Analyser le document</button>
+    </form>
+    </div>
+
+    {# Résultat #}
+    <div>
+    <h2> Résultat </h2>
+        <div>
+            <div>
+                <h3> Résumé </h3>
+                    <p> le résumé ici </p> {#TODO à dynamiqer une fois données : {{ summary }} #}
+            </div>
+            <div>
+                <h3> Points importants </h3>
+                    <ul>
+                        <li>ici le point 1</li> {#TODO à dynamiqer une fois données : {{ key_points }} #}
+                        <li>ici le point 2</li>
+                        <li> ici le point n</li>
+                    </ul>
+            </div>
+            <div>
+                <h3> Actions à suivre </h3>
+                    <ul>
+                        <li>ici l'action 1</li> {#TODO à dynamiqer une fois données : {{ actions }} #}
+                        <li>ici l'action 2</li>
+                        <li>ici l'action n</li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
