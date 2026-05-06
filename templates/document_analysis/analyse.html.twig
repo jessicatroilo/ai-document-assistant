@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Analyser votre texte IA{% endblock %}
+
+{% block body %}
+<div class="page">
+    <div class="container">
+        {# En-tête #}
+        <div class="header">
+            <h1>Assistant de synthèse IA </h1>
+            <p>Collez un compte-rendu, un email ou autre document pour obtenir un résumé, les points clés et les actions à suivre. </p>
+        </div>
+
+        <div class="grid">
+        {# Texte à coller #}
+            <section class="panel input-panel">
+                <h2> Votre texte </h2>
+                <form action="{{path ('app_document_analyze') }}" method='POST'>
+                    <textarea id='texte' name="user_text" placeholder="Collez votre document ici..." required>
+                    </textarea>
+                    <button type="submit" class="btn"> Analyser le document</button>
+                </form>
+            </section>
+
+            {# Résultat #}
+            <section class="panel result-panel">
+                <h2> Résultat </h2>
+                {% if result %}
+                <div>
+                    <div class="card summary">
+                        <h3><i class="fa-regular fa-file"></i> Résumé </h3>
+                            <p> {{ result.summary }} </p>
+                    </div>
+                    <div class="card points">
+                        <h3> <i class="fa-solid fa-star"></i> Points importants </h3>
+                            <ul>
+                                {% for point in result.key_points %}
+                                <li>{{ point }}</li>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                    <div class="card actions">
+                        <h3><i class="fa-solid fa-check"></i> Actions à suivre </h3>
+                            <ul>
+                                {% for action in result.actions %}
+                                <li>{{ action }}</li>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}
