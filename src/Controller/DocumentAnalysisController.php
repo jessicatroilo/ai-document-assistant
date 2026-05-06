@@ -10,7 +10,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 
 final class DocumentAnalysisController extends AbstractController
 {
-    #[Route('/analyze', name: 'app_document_analyze', methods: ['POST', 'GET'])]
+    #[Route('/', name: 'app_document_analyze', methods: ['POST', 'GET'])]
     public function analyze(Request $request, HttpClientInterface $client): Response
     {
 
@@ -26,13 +26,15 @@ final class DocumentAnalysisController extends AbstractController
 
             if ($useApi) {
 
-            $api_key= $_ENV['OPENAI_API_KEY']; //sk-maclesupersecret
-            $api_url='https://api.openai.com/v1/chat/completions';
+            $apiKey= $_ENV['OPENAI_API_KEY']; //sk-maclesupersecret
+            $apiUrl='https://api.openai.com/v1/chat/completions';
+
+            $userText = substr($userText, 0, 8000);
 
             //b.Construction du prompt
-            $prompt = 'Tu es un assistant spécialisé en analyse de documents liés au travail.
-
-                        Analyse le texte et réponds STRICTEMENT au format JSON suivant :
+            $prompt = 'Tu es un assistant d\'analyse de documents liés au travail.
+                        Réponds UNIQUEMENT en JSON valide, sans texte avant ou après.
+                        Format attendu :
 
                         {
                         "summary": "résumé en 5 lignes max",
@@ -61,8 +63,18 @@ final class DocumentAnalysisController extends AbstractController
                     ],
                 ]);
 
-            $content = $data['choices'][0]['message']['content'] ?? 'Erreur dans la réponse API.';
-            $result = json_decode($content, true);
+
+                    $data = $response->toArray();
+                    $content = $data['choices'][0]['message']['content'] ?? null;
+                    $result = json_decode($content, true);
+
+                    if (!$result) {
+                        $result = [
+                            'summary' => $content ?? 'Erreur de génération',
+                            'key_points' => [],
+                            'actions' => []
+                        ];
+                    }
 
                 } catch (\Exception $e) {
                         $result = "Erreur lors de l'appel API : " . $e->getMessage();
@@ -97,5 +109,7 @@ final class DocumentAnalysisController extends AbstractController
             if (!$userText) {
         return $this->render('document_analysis/analyse.html.twig');
         }
+
+
     }
 }

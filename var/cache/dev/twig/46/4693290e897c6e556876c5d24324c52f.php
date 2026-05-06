@@ -116,37 +116,36 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
         yield $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_document_analyze");
         yield "\" method='POST'>
                     <textarea id='texte' name=\"user_text\" placeholder=\"Collez votre document ici...\" required>
-                    Coller votre document ici...
                     </textarea>
                     <button type=\"submit\" class=\"btn\"> Analyser le document</button>
                 </form>
             </section>
 
             ";
-        // line 27
+        // line 26
         yield "            <section class=\"panel result-panel\">
                 <h2> Résultat </h2>
                 ";
-        // line 29
-        if ((($tmp = (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 29, $this->source); })())) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
-            // line 30
+        // line 28
+        if ((($tmp = (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 28, $this->source); })())) && $tmp instanceof Markup ? (string) $tmp : $tmp)) {
+            // line 29
             yield "                <div>
                     <div class=\"card summary\">
                         <h3><i class=\"fa-regular fa-file\"></i> Résumé </h3>
                             <p> ";
-            // line 33
-            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 33, $this->source); })()), "summary", [], "any", false, false, false, 33), "html", null, true);
+            // line 32
+            yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 32, $this->source); })()), "summary", [], "any", false, false, false, 32), "html", null, true);
             yield " </p>
                     </div>
                     <div class=\"card points\">
                         <h3> <i class=\"fa-solid fa-star\"></i> Points importants </h3>
                             <ul>
                                 ";
-            // line 38
+            // line 37
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 38, $this->source); })()), "key_points", [], "any", false, false, false, 38));
+            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 37, $this->source); })()), "key_points", [], "any", false, false, false, 37));
             foreach ($context['_seq'] as $context["_key"] => $context["point"]) {
-                // line 39
+                // line 38
                 yield "                                <li>";
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["point"], "html", null, true);
                 yield "</li>
@@ -155,18 +154,18 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['point'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 41
+            // line 40
             yield "                            </ul>
                     </div>
                     <div class=\"card actions\">
                         <h3><i class=\"fa-solid fa-check\"></i> Actions à suivre </h3>
                             <ul>
                                 ";
-            // line 46
+            // line 45
             $context['_parent'] = $context;
-            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 46, $this->source); })()), "actions", [], "any", false, false, false, 46));
+            $context['_seq'] = CoreExtension::ensureTraversable(CoreExtension::getAttribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 45, $this->source); })()), "actions", [], "any", false, false, false, 45));
             foreach ($context['_seq'] as $context["_key"] => $context["action"]) {
-                // line 47
+                // line 46
                 yield "                                <li>";
                 yield $this->env->getRuntime('Twig\Runtime\EscaperRuntime')->escape($context["action"], "html", null, true);
                 yield "</li>
@@ -175,13 +174,13 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_key'], $context['action'], $context['_parent']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 49
+            // line 48
             yield "                            </ul>
                     </div>
                 </div>
                 ";
         }
-        // line 53
+        // line 52
         yield "            </section>
         </div>
     </div>
@@ -217,7 +216,7 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
      */
     public function getDebugInfo(): array
     {
-        return array (  185 => 53,  179 => 49,  170 => 47,  166 => 46,  159 => 41,  150 => 39,  146 => 38,  138 => 33,  133 => 30,  131 => 29,  127 => 27,  116 => 18,  112 => 16,  104 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
+        return array (  184 => 52,  178 => 48,  169 => 46,  165 => 45,  158 => 40,  149 => 38,  145 => 37,  137 => 32,  132 => 29,  130 => 28,  126 => 26,  116 => 18,  112 => 16,  104 => 9,  100 => 6,  87 => 5,  64 => 3,  41 => 1,);
     }
 
     public function getSourceContext(): Source
@@ -241,7 +240,6 @@ class __TwigTemplate_e70b577aa084404b5b2ef49f8cca2ebb extends Template
                 <h2> Votre texte </h2>
                 <form action=\"{{path ('app_document_analyze') }}\" method='POST'>
                     <textarea id='texte' name=\"user_text\" placeholder=\"Collez votre document ici...\" required>
-                    Coller votre document ici...
                     </textarea>
                     <button type=\"submit\" class=\"btn\"> Analyser le document</button>
                 </form>
